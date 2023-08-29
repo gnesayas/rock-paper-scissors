@@ -1,0 +1,54 @@
+body {
+    transition: all 1s ease;
+}
+
+.victory {
+    background-color: lightgreen;
+}
+
+.defeat {
+    background-color: red;
+}
+
+.command {
+    text-align: center;
+}
+
+.selection {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.choice {
+    margin-top: 16px;
+    height: 300px;
+    width: 300px;
+    transition: all .1s ease;
+}
+
+.round, .result {
+    margin-top: 100px;
+    text-align: center;
+    height: 37px;
+}
+
+.match {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.expand {
+    outline: 4px solid yellow;
+    transition: all .0s ease;
+    transform: scale(1.1);
+}
+
+.select {
+    transform: scale(1.2);
+}

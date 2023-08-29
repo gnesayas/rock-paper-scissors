@@ -1,27 +1,33 @@
 let playerWinCount = 0;
 let computerWinCount = 0;
 
+const body = document.querySelector('body');
 const roundDiv = document.querySelector('.round');
-const matchDiv = document.querySelector('.match');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
 const resultDiv = document.querySelector('.result');
 
 function resetResultsIfNecessary() {
     if (playerWinCount === 0 && computerWinCount === 0) {
         resultDiv.textContent = '';
+        body.classList.remove('victory');
+        body.classList.remove('defeat');
     }
 }
 
 function displayScore() {
-    matchDiv.textContent =
-        `Your score: ${playerWinCount} Computer score: ${computerWinCount}`;
+    playerScore.textContent = `Your score: ${playerWinCount}`
+    computerScore.textContent = `Computer score: ${computerWinCount}`;
 }
 
 function concludeAndResetIfNecessary() {
     if (playerWinCount === 5 || computerWinCount === 5) {
         if (playerWinCount === 5) {
             resultDiv.textContent = 'You win the match! Congratulations!';
+            body.classList.add('victory');
         } else {
             resultDiv.textContent = 'You lose the match! HAHAHAHA';
+            body.classList.add('defeat');
         }
         playerWinCount = 0;
         computerWinCount = 0;
@@ -71,9 +77,23 @@ function getComputerChoice() {
     return 'Scissors';
 }
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        playRound(btn.textContent, getComputerChoice());
+const choices = document.querySelectorAll('.choice');
+choices.forEach((choice) => {
+    choice.addEventListener('mouseover', () => {
+        choice.classList.add('expand');
+    });
+    choice.addEventListener('mouseleave', () => {
+        choice.classList.remove('expand');
+    });
+    choice.addEventListener('mousedown', () => {
+        choice.classList.add('select');
+        playRound(choice.dataset.item, getComputerChoice());
+    });
+    choice.addEventListener('mouseup', () => {
+        choice.classList.remove('select');
+    });
+    choice.addEventListener('dragleave', () => {
+        choice.classList.remove('expand');
+        choice.classList.remove('select');
     });
 });

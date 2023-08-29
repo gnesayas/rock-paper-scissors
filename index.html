@@ -3,14 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
         <script src="javascript.js" defer></script>
     </head>
     <body>
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
-        <div class="round"></div>
-        <div class="match"></div>
-        <div class="result"></div>
+        <h1 class="command">Make Your Selection...</h1>
+        <div class="buttons">
+            <div class="selection">
+                <h1>Rock</h1>
+                <img class="choice" data-item="ROCK" src="pexels-eberhard-grossgasteiger-1120967.jpg">
+            </div>
+            <div class="selection">
+                <h1>Paper</h1>
+                <img class="choice" data-item="PAPER" src="pexels-asya-vlasova-2575363.jpg">
+            </div>
+            <div class="selection">
+                <h1>Scissors</h1>
+                <img class="choice" data-item="SCISSORS" src="pexels-nikolaos-dimou-1319460.jpg">
+            </div>
+        </div>
+        <div>
+            <h1 class="round"></h1>
+            <div class="match">
+                <h1 class="playerScore">Your Score: 0</h1>
+                <h1 class="computerScore">Computer Score: 0</h1>
+            </div>
+            <h1 class="result"></h1>
+        </div>
     </body>
 </html>
